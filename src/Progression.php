@@ -17,10 +17,9 @@ function progression()
         $intervalProgression = rand(0, 10);
         $emptyValue = rand(1, $progressionLength);
         $setProgression = [];
-        $setProgression[0] = $firstNumber;
         $result = '';
-        for ($j = 1; $j < $progressionLength; $j++) {
-            $setProgression[] = $firstNumber + $intervalProgression;
+        for ($j = 0; $j <= $progressionLength; $j++) {
+            $setProgression[] = $firstNumber;
             $firstNumber = $firstNumber + $intervalProgression;
         }
         $rightAnswer = $setProgression[$emptyValue];
@@ -33,7 +32,7 @@ function progression()
         if ($rightAnswer == $answer) {
             line('Correct!');
         } else {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{ $rightAnswer}'.");
+            line("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.");
             line("Let's try again, {$name}!");
             return false;
         }
