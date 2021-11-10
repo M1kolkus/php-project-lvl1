@@ -4,13 +4,12 @@ namespace Src\Calc;
 
 use function cli\line;
 use function cli\prompt;
+use function Src\General_logic\beginning;
 
 function calc()
 {
-    line('Welcome to the Brain Game!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('What is the result of the expression?');
+    $task = 'What is the result of the expression?';
+    beginning($task);
     $typeOperation = ['*', '-', '+'];
     for ($i = 0; $i < 3; $i++) {
         $randomNumber1 = rand(0, 100);
