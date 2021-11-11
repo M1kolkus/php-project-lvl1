@@ -13,9 +13,9 @@
       "src/Cli.php",
       "src/Games/Even.php",
       "src/Games/Calc.php",
-      "src/Gcd.php",
-      "src/Progression.php",
-      "src/Prime.php",
+      "src/Games/Gcd.php",
+      "src/Games/Progression.php",
+      "src/Games/Prime.php",
       "src/GeneralLogic.php"
     ]
   },

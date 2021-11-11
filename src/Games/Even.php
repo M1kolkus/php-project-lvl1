@@ -30,5 +30,5 @@ function even()
             return false;
         }
     }
-    end($name);;
+    end($name);
 }

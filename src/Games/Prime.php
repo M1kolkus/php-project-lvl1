@@ -1,20 +1,21 @@
 <?php
 
-namespace Src\Prime;
+namespace Src\Games\Prime;
 
-use function cli\line;
-use function cli\prompt;
+use function Src\GeneralLogic\end;
+use function Src\GeneralLogic\printWelcome;
+use function Src\GeneralLogic\question;
+use function Src\GeneralLogic\rightAnswer;
+use function Src\GeneralLogic\wrongAnswer;
 
 function prime()
 {
-    line('Welcome to the Brain Game!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('Answer "yes" if given number is prime. Otherwise answer "no".');
+    $task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+    $name = printWelcome($task);
     for ($i = 0; $i < 3; $i++) {
         $randomNumber = rand(0, 100);
-        line("Question: {$randomNumber}");
-        $answer = prompt('Your answer');
+        $question = "Question: {$randomNumber}";
+        $answer = question($question);
         $numberDivisors = [];
         for ($j = 2; $j < $randomNumber; $j++) {
             if ($randomNumber % $j == 0) {
@@ -27,12 +28,11 @@ function prime()
             $rightAnswer = 'no';
         }
         if ($rightAnswer == 'yes' && $answer == 'yes' || $rightAnswer == 'no' && $answer === 'no') {
-            line('Correct!');
+            rightAnswer();
         } else {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.");
-            line("Let's try again, {$name}!");
+            wrongAnswer($answer, $rightAnswer, $name);
             return false;
         }
     }
-    line("Congratulations, {$name}");
+    end($name);
 }

@@ -1,16 +1,17 @@
 <?php
 
-namespace Src\Gcd;
+namespace Src\Games\Gcd;
 
-use function cli\line;
-use function cli\prompt;
+use function Src\GeneralLogic\printWelcome;
+use function Src\GeneralLogic\question;
+use function Src\GeneralLogic\rightAnswer;
+use function Src\GeneralLogic\wrongAnswer;
+use function Src\GeneralLogic\end;
 
 function gcd()
 {
-    line('Welcome to the Brain Game!');
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    line('Find the greatest common divisor of given numbers.');
+    $task = 'Find the greatest common divisor of given numbers.';
+    $name = printWelcome($task);
     for ($i = 0; $i < 3; $i++) {
         $randomNumber1 = rand(0, 100);
         $randomNumber2 = rand(0, 100);
@@ -27,15 +28,14 @@ function gcd()
             }
         }
         $gcd = max(array_intersect($divisorsOneNumber, $divisorsTwoNumber));
-        line("Question: {$randomNumber1} {$randomNumber2}");
-        $answer = prompt('Your answer');
+        $question = "Question: {$randomNumber1} {$randomNumber2}";
+        $answer = question($question);
         if ($gcd == $answer) {
-            line('Correct!');
+            rightAnswer();
         } else {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$gcd}'.");
-            line("Let's try again, {$name}!");
+            wrongAnswer($answer, $gcd, $name);
             return false;
         }
     }
-    line("Congratulations, {$name}");
+    end($name);
 }
