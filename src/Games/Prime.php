@@ -22,7 +22,7 @@ function prime()
                 $numberDivisors[] = $j;
             }
         }
-        if (count($numberDivisors) == 0) {
+        if (count($numberDivisors) === 0 && $randomNumber !== 1) {
             $rightAnswer = 'yes';
         } else {
             $rightAnswer = 'no';
@@ -31,7 +31,7 @@ function prime()
             rightAnswer();
         } else {
             wrongAnswer($answer, $rightAnswer, $name);
-            return false;
+            return;
         }
     }
     end($name);
