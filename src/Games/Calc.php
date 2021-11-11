@@ -18,7 +18,7 @@ function calc()
         $randomNumber2 = rand(0, 100);
         $indexOperation = rand(0, 2);
         $operation = $typeOperation[$indexOperation];
-        $question = "Question: {$randomNumber1}{$operation}{$randomNumber2}";
+        $question = "Question: {$randomNumber1} {$operation} {$randomNumber2}";
         $answer = question($question);
         if ($operation === '*') {
             $result = $randomNumber1 * $randomNumber2;
@@ -26,7 +26,7 @@ function calc()
                 rightAnswer();
             } else {
                 wrongAnswer($answer, $result, $name);
-                return false;
+                return;
             }
         }
         if ($operation === '-') {
@@ -35,7 +35,7 @@ function calc()
                 rightAnswer();
             } else {
                 wrongAnswer($answer, $result, $name);
-                return false;
+                return;
             }
         }
         if ($operation === '+') {
@@ -44,7 +44,7 @@ function calc()
                 rightAnswer();
             } else {
                 wrongAnswer($answer, $result, $name);
-                return false;
+                return;
             }
         }
     }
