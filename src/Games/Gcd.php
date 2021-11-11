@@ -33,7 +33,7 @@ function gcd(): void
         if ($gcd == $answer) {
             rightAnswer();
         } else {
-            wrongAnswer($answer, $gcd, $name);
+            wrongAnswer($answer, (string) $gcd, $name);
             return;
         }
     }

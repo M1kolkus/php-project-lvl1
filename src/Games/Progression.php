@@ -33,7 +33,7 @@ function progression(): void
         if ($rightAnswer == $answer) {
             rightAnswer();
         } else {
-            wrongAnswer($answer, $rightAnswer, $name);
+            wrongAnswer($answer, (string) $rightAnswer, $name);
             return;
         }
     }

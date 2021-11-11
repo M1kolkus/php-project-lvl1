@@ -25,7 +25,7 @@ function calc(): void
             if ($answer == $result) {
                 rightAnswer();
             } else {
-                wrongAnswer($answer, $result, $name);
+                wrongAnswer($answer, (string) $result, $name);
                 return;
             }
         }
@@ -34,7 +34,7 @@ function calc(): void
             if ($answer == $result) {
                 rightAnswer();
             } else {
-                wrongAnswer($answer, $result, $name);
+                wrongAnswer($answer, (string) $result, $name);
                 return;
             }
         }
@@ -43,7 +43,7 @@ function calc(): void
             if ($answer == $result) {
                 rightAnswer();
             } else {
-                wrongAnswer($answer, $result, $name);
+                wrongAnswer($answer, (string) $result, $name);
                 return;
             }
         }

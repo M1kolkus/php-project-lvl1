@@ -23,7 +23,7 @@ function even(): void
         } else {
             if ($randomNumber % 2 == 0) {
                 $rightAnswer = 'yes';
-            } elseif ($randomNumber % 2 != 0) {
+            } else {
                 $rightAnswer = 'no';
             }
             wrongAnswer($answer, $rightAnswer, $name);
