@@ -2,33 +2,33 @@
 
 namespace Src\Games\Even;
 
-use function Src\GeneralLogic\printWelcome;
-use function Src\GeneralLogic\question;
-use function Src\GeneralLogic\rightAnswer;
-use function Src\GeneralLogic\wrongAnswer;
-use function Src\GeneralLogic\end;
+use function cli\line;
+use function cli\prompt;
 
 function even()
 {
-    $task = 'Answer "yes" if the number is even, otherwise answer "no".';
-    $name = printWelcome($task);
+    line('Welcome to the Brain Game!');
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+    line('Answer "yes" if the number is even, otherwise answer "no". ');
     for ($i = 0; $i < 3; $i++) {
         $randomNumber = rand(0, 100);
-        $question = "Question: {$randomNumber}";
-        $answer = question($question);
-        if ($randomNumber % 2 == 0 && $answer == 'yes') {
-            rightAnswer();
-        } elseif ($randomNumber % 2 != 0 && $answer == 'no') {
-            rightAnswer();
+        line("Question: {$randomNumber}");
+        $answer = prompt('Your answer');
+        if ($randomNumber % 2 == 0 && $answer === 'yes') {
+            line('Correct!');
+        } elseif ($randomNumber % 2 != 0 && $answer === 'no') {
+            line('Correct!');
         } else {
             if ($randomNumber % 2 == 0) {
                 $rightAnswer = 'yes';
             } elseif ($randomNumber % 2 != 0) {
                 $rightAnswer = 'no';
             }
-            wrongAnswer($answer, $rightAnswer, $name);
+            line("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.");
+            line("Let's try again, {$name}!");
             return false;
         }
     }
-    end($name);
+    line("Congratulations, {$name}");
 }
