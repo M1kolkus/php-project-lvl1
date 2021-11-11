@@ -8,7 +8,7 @@ use function Src\GeneralLogic\question;
 use function Src\GeneralLogic\rightAnswer;
 use function Src\GeneralLogic\wrongAnswer;
 
-function progression()
+function progression(): void
 {
     $task = 'What number is missing in the progression?';
     $name = printWelcome($task);

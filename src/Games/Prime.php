@@ -8,7 +8,7 @@ use function Src\GeneralLogic\question;
 use function Src\GeneralLogic\rightAnswer;
 use function Src\GeneralLogic\wrongAnswer;
 
-function prime()
+function prime(): void
 {
     $task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     $name = printWelcome($task);

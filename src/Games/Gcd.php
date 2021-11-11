@@ -8,7 +8,7 @@ use function Src\GeneralLogic\rightAnswer;
 use function Src\GeneralLogic\wrongAnswer;
 use function Src\GeneralLogic\end;
 
-function gcd()
+function gcd(): void
 {
     $task = 'Find the greatest common divisor of given numbers.';
     $name = printWelcome($task);

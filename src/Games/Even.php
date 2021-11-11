@@ -8,7 +8,7 @@ use function Src\GeneralLogic\rightAnswer;
 use function Src\GeneralLogic\wrongAnswer;
 use function Src\GeneralLogic\end;
 
-function even()
+function even(): void
 {
     $task = 'Answer "yes" if the number is even, otherwise answer "no".';
     $name = printWelcome($task);

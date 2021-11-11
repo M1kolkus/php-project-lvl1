@@ -8,7 +8,7 @@ use function Src\GeneralLogic\rightAnswer;
 use function Src\GeneralLogic\wrongAnswer;
 use function Src\GeneralLogic\end;
 
-function calc()
+function calc(): void
 {
     $task = 'What is the result of the expression?';
     $name = printWelcome($task);
