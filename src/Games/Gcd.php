@@ -13,8 +13,8 @@ function gcd(): void
     $task = 'Find the greatest common divisor of given numbers.';
     $name = printWelcome($task);
     for ($i = 0; $i < 3; $i++) {
-        $randomNumber1 = rand(0, 100);
-        $randomNumber2 = rand(0, 100);
+        $randomNumber1 = rand(1, 100);
+        $randomNumber2 = rand(1, 100);
         $divisorsOneNumber = [];
         $divisorsTwoNumber = [];
         for ($j = 1; $j <= $randomNumber1; $j++) {
