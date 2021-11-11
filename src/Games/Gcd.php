@@ -34,7 +34,7 @@ function gcd()
             rightAnswer();
         } else {
             wrongAnswer($answer, $gcd, $name);
-            return false;
+            return;
         }
     }
     end($name);

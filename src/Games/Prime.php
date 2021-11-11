@@ -31,7 +31,7 @@ function prime()
             rightAnswer();
         } else {
             wrongAnswer($answer, $rightAnswer, $name);
-            return false;
+            return;
         }
     }
     end($name);

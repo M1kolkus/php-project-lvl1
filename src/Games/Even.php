@@ -27,7 +27,7 @@ function even()
                 $rightAnswer = 'no';
             }
             wrongAnswer($answer, $rightAnswer, $name);
-            return false;
+            return;
         }
     }
     end($name);
