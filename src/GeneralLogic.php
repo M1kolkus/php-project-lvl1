@@ -33,5 +33,5 @@ function wrongAnswer($answer, $result, $name)
 
 function end($name)
 {
-    line("Congratulations, {$name}");
+    line("Congratulations, {$name}!");
 }
