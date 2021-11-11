@@ -28,13 +28,13 @@ function progression()
         for ($k = 0; $k < count($setProgression); $k++) {
             $result = "$result $setProgression[$k]";
         }
-        $question = "Question: {$result}";
+        $question = "Question:{$result}";
         $answer = question($question);
         if ($rightAnswer == $answer) {
             rightAnswer();
         } else {
             wrongAnswer($answer, $rightAnswer, $name);
-            return false;
+            return;
         }
     }
     end($name);
