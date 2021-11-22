@@ -14,7 +14,8 @@
       "src/Games/Gcd.php",
       "src/Games/Progression.php",
       "src/Games/Prime.php",
-      "src/GeneralLogic.php"
+      "src/GeneralLogic.php",
+      "src/Core.php"
     ]
   },
   "authors": [
