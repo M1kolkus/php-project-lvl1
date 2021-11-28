@@ -2,19 +2,16 @@
 
 namespace Src\Games\Prime;
 
-use function Src\GeneralLogic\question;
-use function Src\GeneralLogic\wrongAnswer;
-
 function task(): string
 {
     return 'Answer "yes" if given number is prime. Otherwise answer "no".';
 }
 
-function gameStep($name)
+function gameStep($name): array
 {
     $randomNumber = rand(0, 100);
-    $question = "Question: {$randomNumber}";
-    $answer = question($question);
+    $return = [];
+    $return['question'] = "Question: {$randomNumber}";
     $numberDivisors = [];
     for ($j = 2; $j < $randomNumber; $j++) {
         if ($randomNumber % $j == 0) {
@@ -22,13 +19,9 @@ function gameStep($name)
         }
     }
     if (count($numberDivisors) === 0 && $randomNumber !== 1) {
-        $rightAnswer = 'yes';
+        $return['rightAnswer'] = 'yes';
     } else {
-        $rightAnswer = 'no';
+        $return['rightAnswer'] = 'no';
     }
-    if ($rightAnswer == 'yes' && $answer == 'yes' || $rightAnswer == 'no' && $answer === 'no') {
-        return true;
-    } else {
-        return wrongAnswer($answer, $rightAnswer, $name);
-    }
+    return $return;
 }

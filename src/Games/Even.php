@@ -2,29 +2,20 @@
 
 namespace Src\Games\Even;
 
-use function Src\GeneralLogic\question;
-use function Src\GeneralLogic\wrongAnswer;
-
 function task(): string
 {
     return 'Answer "yes" if the number is even, otherwise answer "no".';
 }
 
-function gameStep($name)
+function gameStep($name): array
 {
     $randomNumber = rand(0, 100);
-    $question = "Question: {$randomNumber}";
-    $answer = question($question);
-    if ($randomNumber % 2 == 0 && $answer == 'yes') {
-        return true;
-    } elseif ($randomNumber % 2 != 0 && $answer == 'no') {
-        return true;
+    $return = [];
+    $return['question'] = "Question: {$randomNumber}";
+    if ($randomNumber % 2 == 0) {
+        $return['rightAnswer'] = 'yes';
     } else {
-        if ($randomNumber % 2 == 0) {
-            $rightAnswer = 'yes';
-        } else {
-            $rightAnswer = 'no';
-        }
-        return wrongAnswer($answer, $rightAnswer, $name);
+        $return['rightAnswer'] = 'no';
     }
+    return $return;
 }

@@ -2,46 +2,28 @@
 
 namespace Src\Games\Calc;
 
-use function Src\GeneralLogic\question;
-use function Src\GeneralLogic\wrongAnswer;
-
 function task(): string
 {
     return 'What is the result of the expression?';
 }
 
-
-function gameStep($name)
+function gameStep($name): array
 {
     $typeOperation = ['*', '-', '+'];
     $randomNumber1 = rand(0, 100);
     $randomNumber2 = rand(0, 100);
     $indexOperation = rand(0, 2);
     $operation = $typeOperation[$indexOperation];
-    $question = "Question: {$randomNumber1} {$operation} {$randomNumber2}";
-    $answer = question($question);
+    $return = [];
+    $return['question'] = "Question: {$randomNumber1} {$operation} {$randomNumber2}";
     if ($operation === '*') {
-        $result = $randomNumber1 * $randomNumber2;
-        if ($answer == $result) {
-            return true;
-        } else {
-            return wrongAnswer($answer, (string) $result, $name);
-        }
+        $return['rightAnswer'] = $randomNumber1 * $randomNumber2;
     }
     if ($operation === '-') {
-        $result = $randomNumber1 - $randomNumber2;
-        if ($answer == $result) {
-            return true;
-        } else {
-            return wrongAnswer($answer, (string) $result, $name);
-        }
+        $return['rightAnswer'] = $randomNumber1 - $randomNumber2;
     }
     if ($operation === '+') {
-        $result = $randomNumber1 + $randomNumber2;
-        if ($answer == $result) {
-            return true;
-        } else {
-            return wrongAnswer($answer, (string) $result, $name);
-            }
-        }
- }
+        $return['rightAnswer'] = $randomNumber1 + $randomNumber2;
+    }
+    return $return;
+}
