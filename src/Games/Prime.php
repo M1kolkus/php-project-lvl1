@@ -1,13 +1,13 @@
 <?php
 
-namespace Src\Games\Prime;
+namespace BrainGames\Games\Prime;
 
-function task(): string
+function getTask(): string
 {
     return 'Answer "yes" if given number is prime. Otherwise answer "no".';
 }
 
-function gameStep($name): array
+function getGameStep($name): array
 {
     $randomNumber = rand(0, 100);
     $return = [];

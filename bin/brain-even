@@ -1,9 +1,9 @@
 #!/usr/bin/env php
 <?php
 
-use function Src\Core\run;
+use function BrainGames\Engine\run;
 
-$autoloadPath1 = __DIR__ . '/../../../autoload.php';
+$autoloadPath1 = __DIR__ . 'BrainGames/../../../autoload.php';
 $autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
 if (file_exists($autoloadPath1)) {
     require_once $autoloadPath1;

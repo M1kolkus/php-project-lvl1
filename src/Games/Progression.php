@@ -1,13 +1,13 @@
 <?php
 
-namespace Src\Games\Progression;
+namespace BrainGames\Games\Progression;
 
-function task(): string
+function getTask(): string
 {
     return 'What number is missing in the progression?';
 }
 
-function gameStep($name): array
+function getGameStep($name): array
 {
     $firstNumber = rand(0, 100);
     $progressionLength = rand(5, 10);

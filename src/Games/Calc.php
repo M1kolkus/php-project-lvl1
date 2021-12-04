@@ -1,29 +1,38 @@
 <?php
 
-namespace Src\Games\Calc;
+namespace BrainGames\Games\Calc;
 
-function task(): string
+function getTask(): string
 {
     return 'What is the result of the expression?';
 }
 
-function gameStep($name): array
+function choosingRandomOperator(): string
 {
     $typeOperation = ['*', '-', '+'];
-    $randomNumber1 = rand(0, 100);
-    $randomNumber2 = rand(0, 100);
-    $indexOperation = rand(0, 2);
-    $operation = $typeOperation[$indexOperation];
+    $indexOperation = random_int(0, 2);
+    return $typeOperation[$indexOperation];
+}
+
+function outputsSolutionExpression($number1, $number2, $operation): int
+{
+    switch ($operation) {
+        case '*':
+            return $number1 * $number2;
+        case '-':
+            return $number1 - $number2;
+        case '+':
+            return $number1 + $number2;
+    }
+}
+
+function getGameStep($name): array
+{
+    $operation = choosingRandomOperator();
+    $randomNumber1 = random_int(0, 100);
+    $randomNumber2 = random_int(0, 100);
     $return = [];
     $return['question'] = "Question: {$randomNumber1} {$operation} {$randomNumber2}";
-    if ($operation === '*') {
-        $return['rightAnswer'] = $randomNumber1 * $randomNumber2;
-    }
-    if ($operation === '-') {
-        $return['rightAnswer'] = $randomNumber1 - $randomNumber2;
-    }
-    if ($operation === '+') {
-        $return['rightAnswer'] = $randomNumber1 + $randomNumber2;
-    }
+    $return['rightAnswer'] = outputsSolutionExpression($randomNumber1, $randomNumber2, $operation);
     return $return;
 }

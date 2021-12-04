@@ -1,13 +1,13 @@
 <?php
 
-namespace Src\Games\Gcd;
+namespace BrainGames\Games\Gcd;
 
-function task(): string
+function getTask(): string
 {
     return 'Find the greatest common divisor of given numbers.';
 }
 
-function gameStep($name): array
+function getGameStep($name): array
 {
     $randomNumber1 = rand(1, 100);
     $randomNumber2 = rand(1, 100);
