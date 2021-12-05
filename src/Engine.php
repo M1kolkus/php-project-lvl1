@@ -29,16 +29,13 @@ function run($game)
     $numberRoundsGame = 3;
 
     for ($i = 0; $i < $numberRoundsGame; $i++) {
-        $data = $gameStep($name);
-        $question = $data['question'];
+        [$questionPlayer, $rightAnswer] = $gameStep();;
+        $question = $questionPlayer;
         $answer = question($question);
-        if (is_int($data['rightAnswer'])) {
-            $answer = (int)$answer;
-        }
-        if ($data['rightAnswer'] === $answer) {
+        if ((string)$rightAnswer === $answer) {
             line('Correct!');
         } else {
-            line("'{$answer}' is wrong answer ;(. Correct answer was '{$data['rightAnswer']}'.");
+            line("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.");
             line("Let's try again, {$name}!");
             break;
         }

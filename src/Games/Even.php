@@ -7,15 +7,10 @@ function getTask(): string
     return 'Answer "yes" if the number is even, otherwise answer "no".';
 }
 
-function getGameStep($name): array
+function getGameStep(): array
 {
-    $randomNumber = rand(0, 100);
-    $return = [];
-    $return['question'] = "Question: {$randomNumber}";
-    if ($randomNumber % 2 === 0) {
-        $return['rightAnswer'] = 'yes';
-    } else {
-        $return['rightAnswer'] = 'no';
-    }
-    return $return;
+    $randomNumber = random_int(0, 100);
+    $questionPlayer = "Question: {$randomNumber}";
+    $rightAnswer = $randomNumber % 2 === 0 ? 'yes' : 'no';
+    return [$questionPlayer, $rightAnswer];
 }

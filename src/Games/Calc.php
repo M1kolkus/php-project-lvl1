@@ -26,13 +26,12 @@ function outputsSolutionExpression($number1, $number2, $operation): int
     }
 }
 
-function getGameStep($name): array
+function getGameStep(): array
 {
     $operation = choosingRandomOperator();
     $randomNumber1 = random_int(0, 100);
     $randomNumber2 = random_int(0, 100);
-    $return = [];
-    $return['question'] = "Question: {$randomNumber1} {$operation} {$randomNumber2}";
-    $return['rightAnswer'] = outputsSolutionExpression($randomNumber1, $randomNumber2, $operation);
-    return $return;
+    $questionPlayer = "Question: {$randomNumber1} {$operation} {$randomNumber2}";
+    $rightAnswer = outputsSolutionExpression($randomNumber1, $randomNumber2, $operation);
+    return [$questionPlayer, $rightAnswer];
 }

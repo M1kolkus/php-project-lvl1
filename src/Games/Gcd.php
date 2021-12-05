@@ -7,13 +7,12 @@ function getTask(): string
     return 'Find the greatest common divisor of given numbers.';
 }
 
-function getGameStep($name): array
+function getGameStep(): array
 {
-    $randomNumber1 = rand(1, 100);
-    $randomNumber2 = rand(1, 100);
+    $randomNumber1 = random_int(1, 100);
+    $randomNumber2 = random_int(1, 100);
     $divisorsOneNumber = [];
     $divisorsTwoNumber = [];
-    $return = [];
     for ($j = 1; $j <= $randomNumber1; $j++) {
         if ($randomNumber1 % $j === 0) {
             $divisorsOneNumber[] = $j;
@@ -24,7 +23,7 @@ function getGameStep($name): array
             $divisorsTwoNumber[] = $k;
         }
     }
-    $return['question'] = "Question: {$randomNumber1} {$randomNumber2}";
-    $return['rightAnswer'] = max(array_intersect($divisorsOneNumber, $divisorsTwoNumber));
-    return $return;
+    $questionPlayer = "Question: {$randomNumber1} {$randomNumber2}";
+    $rightAnswer = max(array_intersect($divisorsOneNumber, $divisorsTwoNumber));
+    return [$questionPlayer, $rightAnswer];
 }
