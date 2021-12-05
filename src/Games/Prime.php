@@ -13,7 +13,7 @@ function getGameStep(): array
     $questionPlayer = "Question: {$randomNumber}";
     $numberDivisors = [];
     for ($j = 2; $j < $randomNumber; $j++) {
-        if ($randomNumber % $j == 0) {
+        if ($randomNumber % $j === 0) {
             $numberDivisors[] = $j;
         }
     }
