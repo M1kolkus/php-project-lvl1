@@ -7,6 +7,16 @@ function getTask(): string
     return 'What is the result of the expression?';
 }
 
+function getGameStep(): array
+{
+    $operation = choosingRandomOperator();
+    $randomNumber1 = random_int(0, 100);
+    $randomNumber2 = random_int(0, 100);
+    $questionPlayer = "Question: {$randomNumber1} {$operation} {$randomNumber2}";
+    $rightAnswer = outputsSolutionExpression($randomNumber1, $randomNumber2, $operation);
+    return [$questionPlayer, $rightAnswer];
+}
+
 function choosingRandomOperator(): string
 {
     $typeOperation = ['*', '-', '+'];
@@ -26,12 +36,4 @@ function outputsSolutionExpression($number1, $number2, $operation): int
     }
 }
 
-function getGameStep(): array
-{
-    $operation = choosingRandomOperator();
-    $randomNumber1 = random_int(0, 100);
-    $randomNumber2 = random_int(0, 100);
-    $questionPlayer = "Question: {$randomNumber1} {$operation} {$randomNumber2}";
-    $rightAnswer = outputsSolutionExpression($randomNumber1, $randomNumber2, $operation);
-    return [$questionPlayer, $rightAnswer];
-}
+
