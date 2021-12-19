@@ -27,3 +27,4 @@ function getGameStep(): array
     $questionPlayer = "Question:{$result}";
     return [$questionPlayer, $rightAnswer];
 }
+

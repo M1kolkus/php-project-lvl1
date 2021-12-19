@@ -20,3 +20,4 @@ function getGameStep(): array
     $rightAnswer = count($numberDivisors) === 0 && $randomNumber !== 1 ? 'yes' : 'no';
     return [$questionPlayer, $rightAnswer];
 }
+

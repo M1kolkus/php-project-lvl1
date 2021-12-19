@@ -11,19 +11,18 @@ function getGameStep(): array
 {
     $randomNumber1 = random_int(1, 100);
     $randomNumber2 = random_int(1, 100);
-    $divisorsOneNumber = [];
-    $divisorsTwoNumber = [];
-    for ($j = 1; $j <= $randomNumber1; $j++) {
-        if ($randomNumber1 % $j === 0) {
-            $divisorsOneNumber[] = $j;
-        }
-    }
-    for ($k = 1; $k <= $randomNumber2; $k++) {
-        if ($randomNumber2 % $k === 0) {
-            $divisorsTwoNumber[] = $k;
-        }
-    }
     $questionPlayer = "Question: {$randomNumber1} {$randomNumber2}";
-    $rightAnswer = max(array_intersect($divisorsOneNumber, $divisorsTwoNumber));
+    $rightAnswer = max(array_intersect(findingDivisors($randomNumber1), findingDivisors($randomNumber2)));
     return [$questionPlayer, $rightAnswer];
+}
+
+Function findingDivisors(int $number): array
+{
+    $divisorsOneNumber = [];
+    for ($i = 1; $i <= $number; $i++) {
+        if ($number % $i === 0) {
+            $divisorsOneNumber[] = $i;
+        }
+    }
+    return $divisorsOneNumber;
 }

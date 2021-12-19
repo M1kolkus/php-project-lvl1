@@ -19,9 +19,9 @@ function getGameStep(): array
 
 function choosingRandomOperator(): string
 {
-    $typeOperation = ['*', '-', '+'];
+    $typeOperations = ['*', '-', '+'];
     $indexOperation = random_int(0, 2);
-    return $typeOperation[$indexOperation];
+    return $typeOperations[$indexOperation];
 }
 
 function outputsSolutionExpression($number1, $number2, $operation): int
@@ -35,5 +35,4 @@ function outputsSolutionExpression($number1, $number2, $operation): int
             return $number1 + $number2;
     }
 }
-
 

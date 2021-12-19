@@ -11,19 +11,17 @@ function run($game)
     $task = $str();
     $gameStep = "\\BrainGames\\Games\\{$game}\\getGameStep";
     $name = printWelcome($task);
-    $numberRoundsGame = 3;
+    $roundsCount = 3;
 
-    for ($i = 0; $i < $numberRoundsGame; $i++) {
-        [$questionPlayer, $rightAnswer] = $gameStep();;
-        $question = $questionPlayer;
-        $answer = question($question);
-        if ((string)$rightAnswer === $answer) {
-            line('Correct!');
-        } else {
+    for ($i = 0; $i < $roundsCount; $i++) {
+        [$questionPlayer, $rightAnswer] = $gameStep();
+        $answer = question($questionPlayer);
+        if ((string)$rightAnswer !== $answer) {
             line("'{$answer}' is wrong answer ;(. Correct answer was '{$rightAnswer}'.");
             line("Let's try again, {$name}!");
             return;
         }
+        line('Correct!');
     }
     line("Congratulations, {$name}!");
 }
@@ -42,3 +40,4 @@ function question(string $question): string
     line($question);
     return prompt('Your answer');
 }
+
