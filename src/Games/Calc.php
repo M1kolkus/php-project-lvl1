@@ -35,4 +35,3 @@ function outputsSolutionExpression($number1, $number2, $operation): int
             return $number1 + $number2;
     }
 }
-

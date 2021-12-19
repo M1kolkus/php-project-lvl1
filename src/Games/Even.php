@@ -14,4 +14,3 @@ function getGameStep(): array
     $rightAnswer = $randomNumber % 2 === 0 ? 'yes' : 'no';
     return [$questionPlayer, $rightAnswer];
 }
-

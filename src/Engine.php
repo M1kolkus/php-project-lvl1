@@ -40,4 +40,3 @@ function question(string $question): string
     line($question);
     return prompt('Your answer');
 }
-

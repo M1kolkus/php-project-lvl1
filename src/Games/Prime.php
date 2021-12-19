@@ -11,13 +11,17 @@ function getGameStep(): array
 {
     $randomNumber = random_int(0, 100);
     $questionPlayer = "Question: {$randomNumber}";
-    $numberDivisors = [];
-    for ($j = 2; $j < $randomNumber; $j++) {
-        if ($randomNumber % $j === 0) {
-            $numberDivisors[] = $j;
-        }
-    }
-    $rightAnswer = count($numberDivisors) === 0 && $randomNumber !== 1 ? 'yes' : 'no';
+    $rightAnswer = isPrime($randomNumber) ? 'yes' : 'no';
     return [$questionPlayer, $rightAnswer];
 }
 
+function isPrime($number): bool
+{
+    $numberDivisors = [];
+    for ($j = 2; $j < $number; $j++) {
+        if ($number % $j === 0) {
+            $numberDivisors[] = $j;
+        }
+    }
+    return count($numberDivisors) === 0 && $number !== 1;
+}
